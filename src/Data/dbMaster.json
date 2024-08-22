@@ -1,0 +1,263 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "hosts": [
+        "Ben"
+      ],
+      "occassion": "Ben's 20th Birthday",
+      "date": "15/07/2025",
+      "location": "Newcastle",
+      "invited": 12,
+      "accepted": 8,
+      "thumbnail": ""
+    },
+    {
+      "id": "2",
+      "hosts": [
+        "Lillian"
+      ],
+      "occassion": "Lill's 61st Birthday",
+      "date": "04/10/2024",
+      "location": "York",
+      "invited": 8,
+      "accepted": 8,
+      "thumbnail": ""
+    },
+    {
+      "id": "3",
+      "hosts": [
+        "Charlie",
+        "Anna"
+      ],
+      "occassion": "Charlie and Anna's House Warming",
+      "date": "15/08/2024",
+      "location": "Harrogate",
+      "invited": 12,
+      "accepted": 12,
+      "thumbnail": ""
+    },
+    {
+      "id": "4",
+      "hosts": [
+        "Ollie"
+      ],
+      "occassion": "Ollie's 27th Birthday",
+      "date": "05/05/2025",
+      "location": "Leeds",
+      "invited": 10,
+      "accepted": 5,
+      "thumbnail": ""
+    },
+    {
+      "id": "5",
+      "hosts": [
+        "George",
+        "Millie",
+        "Tilly"
+      ],
+      "occassion": "George and Millie's House Warming",
+      "date": "12/07/2024",
+      "location": "Leeds",
+      "invited": 6,
+      "accepted": 4,
+      "thumbnail": ""
+    },
+    {
+      "id": "6",
+      "hosts": [
+        "Jonny"
+      ],
+      "occassion": "Jonny's 27th Birthday",
+      "date": "11/11/2024",
+      "location": "York",
+      "invited": 12,
+      "accepted": 9,
+      "thumbnail": ""
+    },
+    {
+      "id": "7",
+      "hosts": [
+        "Alex"
+      ],
+      "occassion": "Palmer's Run Club",
+      "date": "18/11/2024",
+      "location": "Tockwith",
+      "invited": 12,
+      "accepted": 11,
+      "thumbnail": ""
+    },
+    {
+      "id": "8",
+      "hosts": [
+        "Lauren"
+      ],
+      "occassion": "Lauren's Ski Event",
+      "date": "25/11/2024",
+      "location": "Castleford",
+      "invited": 12,
+      "accepted": 5,
+      "thumbnail": ""
+    },
+    {
+      "id": "9",
+      "hosts": [
+        "George",
+        "Jess"
+      ],
+      "occassion": "George's Pizza Party",
+      "date": "18/08/2024",
+      "location": "Tadcaster",
+      "invited": 10,
+      "accepted": 8,
+      "thumbnail": ""
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "eventID": "1",
+      "sender": "Ollie",
+      "message": "This party is going to be great!"
+    },
+    {
+      "id": 2,
+      "eventID": "1",
+      "sender": "Ben",
+      "message": "I know, I really can't wait!"
+    },
+    {
+      "id": 3,
+      "eventID": "2",
+      "sender": "Ben",
+      "message": "No way you're 61!"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "first name": "Ben",
+      "last name": "P",
+      "email": "cooldude@dude.com",
+      "password": "12345",
+      "number": "01826447608",
+      "profile picture": "",
+      "events": [],
+      "contacts": [],
+      "basket": []
+    },
+    {
+      "id": "2",
+      "first name": "Ollie",
+      "last name": "P",
+      "email": "evencoolerdude@dude.com",
+      "password": "abcde",
+      "number": "06817267324",
+      "profile picture": "",
+      "events": [],
+      "contacts": [],
+      "basket": []
+    },
+    {
+      "id": "3",
+      "first name": "Charlie",
+      "last name": "F",
+      "email": "desmond@dude.com",
+      "password": "clarets",
+      "number": "02848641638",
+      "profile picture": "",
+      "events": [],
+      "contacts": [],
+      "basket": []
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Party Bags",
+      "price": 10.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "2",
+      "name": "A3 Poster",
+      "price": 12.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "3",
+      "name": "A4 Poster",
+      "price": 8.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "4",
+      "name": "A0 Correx",
+      "price": 59.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "5",
+      "name": "A1 Correx",
+      "price": 49.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "6",
+      "name": "A2 Correx",
+      "price": 39.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "7",
+      "name": "A4 Correx",
+      "price": 19.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "8",
+      "name": "A3 Correx",
+      "price": 29.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "9",
+      "name": "A3 Correx",
+      "price": 29.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "10",
+      "name": "A3 Correx",
+      "price": 29.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "11",
+      "name": "A3 Correx",
+      "price": 29.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "12",
+      "name": "A3 Correx",
+      "price": 29.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "13",
+      "name": "A3 Correx",
+      "price": 29.99,
+      "thumbnail": ""
+    },
+    {
+      "id": "14",
+      "name": "A3 Correx",
+      "price": 29.99,
+      "thumbnail": ""
+    }
+  ],
+  "baskets": [
+    {}
+  ]
+}
