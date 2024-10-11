@@ -13,12 +13,14 @@ export default function ProductInfo() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
+  const [total, setTotal] = useState(1);
 
   useEffect(() => {
     getProductById(id)
       .then((data) => {
         setLoading(false);
         setProduct(data[0]);
+        setTotal(data[0].price);
       })
       .catch((error) => {
         setError(error);
@@ -26,10 +28,25 @@ export default function ProductInfo() {
   }, [id]);
 
   function handleAddToBasket() {
-    addToBasket(product).then((data) => {
+    const chosenQty = Number(document.getElementById("chosen-qty").value);
+    addToBasket(product, chosenQty).then((data) => {
       console.log(data);
       setBasket([...basket, data]);
     });
+  }
+
+  function selectedQty() {
+    const chosenQty = Number(document.getElementById("chosen-qty").value);
+    setTotal(product.price * chosenQty);
+  }
+
+  const quantities = [];
+  for (let i = 1; i <= 100; i++) {
+    quantities.push(
+      <option value={i} key={i}>
+        {i}
+      </option>
+    );
   }
 
   return error ? (
@@ -51,29 +68,92 @@ export default function ProductInfo() {
           </li>
         </ol>
       </nav>
-      <div className="container-xxl my-5">
-        <div className="card mb-3">
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img src={defaultImage} className="card-img-top" alt="..." />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h4 className="card-title">{product.name}</h4>
-                <p className="card-text">£{product.price} Excl. VAT</p>
-                <p className="card-text">Stock: 5+</p>
-              </div>
-              <div className="d-grid gap-2 p-4">
-                <button
-                  className="btn btn-primary"
-                  type="button"
-                  onClick={(e) => handleAddToBasket(e)}
-                >
-                  Add to Cart
-                </button>
+      <div className="row mx-2">
+        <div className="col">
+          <div className="card mb-4">
+            <div className="row g-0">
+              <div className="col">
+                <img src={defaultImage} className="card-img-top" alt="..." />
               </div>
             </div>
           </div>
+        </div>
+        <div className="col">
+          <form>
+            <div className="card mb-4 p-2">
+              <div className="card-body">
+                <h4 className="card-title mb-4">{product.name}</h4>
+                <div className="input-group mb-4">
+                  <input
+                    type="file"
+                    className="form-control"
+                    id="inputGroupFile04"
+                    aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload"
+                    required
+                  />
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    id="inputGroupFileAddon04"
+                  >
+                    Submit
+                  </button>
+                </div>
+                <div className="input-group mb-4">
+                  <label
+                    className="input-group-text"
+                    htmlFor="inputGroupSelect01"
+                  >
+                    Type
+                  </label>
+                  <select className="form-select" id="inputGroupSelect01">
+                    <option>{product.type}</option>
+                  </select>
+                </div>
+                <div className="input-group mb-4">
+                  <label
+                    className="input-group-text"
+                    htmlFor="inputGroupSelect01"
+                  >
+                    Size
+                  </label>
+                  <select className="form-select" id="inputGroupSelect01">
+                    <option>{product.size}</option>
+                  </select>
+                </div>
+                <div className="input-group mb-4">
+                  <label className="input-group-text" htmlFor="chosen-qty">
+                    Quantity
+                  </label>
+                  <select
+                    className="form-select"
+                    id="chosen-qty"
+                    onChange={() => {
+                      selectedQty();
+                    }}
+                  >
+                    <option disabled>Choose...</option>
+                    {quantities}
+                  </select>
+                </div>
+                <p className="card-text my-3">Stock: 250+</p>
+                <p className="card-text my-3 fs-5">
+                  <strong>Total</strong> £{total.toFixed(2)}{" "}
+                  <span className="fs-6 fw-light">Excl. VAT</span>
+                </p>
+                <button
+                  className="btn bt-group btn-primary w-100"
+                  type="button"
+                  onClick={(e) => {
+                    handleAddToBasket(e);
+                  }}
+                >
+                  <i className="bi bi-basket"></i> Add to Basket
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

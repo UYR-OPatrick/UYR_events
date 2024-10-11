@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { getBasket, removeFromBasket } from "../Utils/utils";
+import { getBasket, removeFromBasket, editQuantity } from "../Utils/utils";
 import Error from "../Components/Error";
 import Loading from "../Components/Loading";
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { BasketContext } from "../App";
 
@@ -10,7 +9,6 @@ export default function Basket() {
   const [basket, setBasket] = useContext(BasketContext);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     getBasket()
@@ -37,7 +35,7 @@ export default function Basket() {
   function subtotal() {
     let total = 0;
     for (let i = 0; i < basket.length; i++) {
-      total += basket[i].price;
+      total += basket[i].price * basket[i].quantity;
     }
     return total;
   }
@@ -51,6 +49,18 @@ export default function Basket() {
       return 0;
     } else {
       return 3;
+    }
+  }
+
+  function handleEditQuantity(id, change) {
+    if (change === 0) {
+      handleRemove(id);
+    } else {
+      editQuantity(id, change).then((data) => {
+        getBasket().then((data) => {
+          setBasket(data);
+        });
+      });
     }
   }
 
@@ -70,20 +80,78 @@ export default function Basket() {
       ) : (
         <div>
           <div className="my-3 p-3 rounded border border-2">
+            <div className="p-3 pt-1 my-0">
+              <div className="row">
+                <div className="col fw-bold">
+                  <div>Product</div>
+                </div>
+                <div className="col fw-bold text-center">
+                  <div>Price</div>
+                </div>
+                <div className="col fw-bold text-center">
+                  <div>Quantity</div>
+                </div>
+                <div className="col fw-bold text-center">
+                  <div>Total</div>
+                </div>
+              </div>
+            </div>
+            <hr className="mt-0" />
             {basket.map((product) => {
               return (
                 <div
-                  className="my-3 p-3 rounded border border-2 text-justify-center"
+                  className="mb-3 p-3 rounded border border-2 text-justify-center"
                   key={product.id}
                 >
-                  <p
-                    className="display-6 m-0"
-                    role="button"
-                    onClick={() => navigate(`/products?name=${product.name}`)}
-                  >
-                    {product.name}
-                  </p>
-                  <p className="display-6 m-0">£{product.price}</p>
+                  <div className="row">
+                    <div className="col">
+                      <p>{product.name}</p>
+                    </div>
+                    <div className="col text-center">
+                      <p>£{product.price}</p>
+                    </div>
+                    <div className="col text-center">
+                      <div
+                        className="btn-group"
+                        role="group"
+                        aria-label="Basic outlined example"
+                      >
+                        <button
+                          type="button"
+                          className="btn btn-outline-secondary"
+                          onClick={() => {
+                            handleEditQuantity(
+                              product.id,
+                              product.quantity - 1
+                            );
+                          }}
+                        >
+                          <i className="bi bi-dash"></i>
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-outline-secondary"
+                        >
+                          {product.quantity}
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-outline-secondary"
+                          onClick={() => {
+                            handleEditQuantity(
+                              product.id,
+                              product.quantity + 1
+                            );
+                          }}
+                        >
+                          <i className="bi bi-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div className="col text-center">
+                      <p>£{(product.price * product.quantity).toFixed(2)}</p>
+                    </div>
+                  </div>
                   <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button
                       type="button"
@@ -97,11 +165,17 @@ export default function Basket() {
               );
             })}
           </div>
-          {subtotal() < 50 ? <div className="alert alert-danger" role="alert">
-            {`Spend £${50 - subtotal()} to qualify for free delivery`}
-          </div> : <div className="alert alert-success" role="alert">
-            Qualified for free delivery
-          </div>}
+          {subtotal() < 50 ? (
+            <div className="alert alert-danger" role="alert">
+              {`Spend £${(50 - subtotal()).toFixed(
+                2
+              )} to qualify for free delivery`}
+            </div>
+          ) : (
+            <div className="alert alert-success" role="alert">
+              You have qualified for free delivery
+            </div>
+          )}
           <ul className="list-group">
             <li className="list-group-item d-flex justify-content-between align-items-center">
               Subtotal

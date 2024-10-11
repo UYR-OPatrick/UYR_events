@@ -74,8 +74,9 @@ export async function getBasket() {
   })
 }
 
-export async function addToBasket(product){
+export async function addToBasket(product, quantity){
   delete product.id
+  product.quantity = quantity
   return axios.post('http://localhost:8000/basket', product).then(res => {
     return res.data
   })
@@ -83,6 +84,12 @@ export async function addToBasket(product){
 
 export async function removeFromBasket(id) {
   return axios.delete(`http://localhost:8000/basket/${id}`).then(res => {
+    return res
+  })
+}
+
+export async function editQuantity(id, change){
+  return axios.patch(`http://localhost:8000/basket/${id}`, {quantity: change}).then(res => {
     return res
   })
 }

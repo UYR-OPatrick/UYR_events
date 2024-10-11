@@ -174,87 +174,465 @@
   "products": [
     {
       "id": "1",
-      "name": "Party Bags",
-      "price": 10.99,
-      "thumbnail": ""
+      "name": "A0 Poster",
+      "price": 12.99,
+      "thumbnail": "/images/1.avif",
+      "type": "Poster",
+      "size": "841mm x 1189mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "2",
-      "name": "A3 Poster",
+      "name": "A1 Poster",
       "price": 12.99,
-      "thumbnail": ""
+      "thumbnail": "/images/2.jpg",
+      "type": "Poster",
+      "size": "594mm x 841mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "3",
-      "name": "A4 Poster",
-      "price": 8.99,
-      "thumbnail": ""
+      "name": "A2 Poster",
+      "price": 12.99,
+      "thumbnail": "/images/3.avif",
+      "type": "Poster",
+      "size": "420mm x 594mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "4",
-      "name": "A0 Correx",
-      "price": 59.99,
-      "thumbnail": ""
+      "name": "A3 Poster",
+      "price": 12.99,
+      "thumbnail": "/images/4.avif",
+      "type": "Poster",
+      "size": "297mm x 420mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "5",
-      "name": "A1 Correx",
-      "price": 49.99,
-      "thumbnail": ""
+      "name": "A4 Poster",
+      "price": 8.99,
+      "thumbnail": "/images/17.avif",
+      "type": "Poster",
+      "size": "210mm x 297mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "6",
-      "name": "A2 Correx",
-      "price": 39.99,
-      "thumbnail": ""
+      "name": "A5 Poster",
+      "price": 12.99,
+      "thumbnail": "/images/6.png",
+      "type": "Poster",
+      "size": "148mm x 210mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "7",
-      "name": "A4 Correx",
-      "price": 19.99,
-      "thumbnail": ""
+      "name": "A0 Correx",
+      "price": 59.99,
+      "thumbnail": "/images/7.png",
+      "type": "Correx",
+      "size": "841mm x 1189mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "8",
-      "name": "A3 Correx",
-      "price": 29.99,
-      "thumbnail": ""
+      "name": "A1 Correx",
+      "price": 49.99,
+      "thumbnail": "/images/8.webp",
+      "type": "Correx",
+      "size": "594mm x 841mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "9",
-      "name": "A3 Correx",
-      "price": 29.99,
-      "thumbnail": ""
+      "name": "A2 Correx",
+      "price": 39.99,
+      "thumbnail": "/images/9.jpg",
+      "type": "Correx",
+      "size": "420mm x 594mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "10",
       "name": "A3 Correx",
       "price": 29.99,
-      "thumbnail": ""
+      "thumbnail": "/images/10.jpg",
+      "type": "Correx",
+      "size": "297mm x 420mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "11",
-      "name": "A3 Correx",
-      "price": 29.99,
-      "thumbnail": ""
+      "name": "A4 Correx",
+      "price": 19.99,
+      "thumbnail": "/images/11.webp",
+      "type": "Correx",
+      "size": "210mm x 297mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "12",
-      "name": "A3 Correx",
-      "price": 29.99,
-      "thumbnail": ""
+      "name": "A5 Correx",
+      "price": 19.99,
+      "thumbnail": "/images/12.jpg",
+      "type": "Correx",
+      "size": "148m x 210mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "13",
-      "name": "A3 Correx",
-      "price": 29.99,
-      "thumbnail": ""
+      "name": "Balloons",
+      "price": 14.99,
+      "thumbnail": "/images/13.png",
+      "type": "Balloons",
+      "size": "Pack of 5",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     },
     {
       "id": "14",
-      "name": "A3 Correx",
+      "name": "Party Bags",
+      "price": 10.99,
+      "thumbnail": "/images/14.jpg",
+      "type": "Party Bags",
+      "size": "8 Items",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Bunting",
       "price": 29.99,
-      "thumbnail": ""
+      "thumbnail": "/images/15.jpg",
+      "type": "Bunting",
+      "size": "297mm x 420mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Cake Toppers",
+      "price": 29.99,
+      "thumbnail": "/images/16.webp",
+      "type": "Cake Toppers",
+      "size": "297mm x 420mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Candles",
+      "price": 29.99,
+      "thumbnail": "/images/candles.webp",
+      "type": "Candles",
+      "size": "5cm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Crackers",
+      "price": 29.99,
+      "thumbnail": "/images/crackers.jpg",
+      "type": "Crackers",
+      "size": "Cracker",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Cups",
+      "price": 29.99,
+      "thumbnail": "/images/cups.jpg",
+      "type": "Cups",
+      "size": "300ml",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Napkins",
+      "price": 29.99,
+      "thumbnail": "/images/napkins.webp",
+      "type": "Napkins",
+      "size": "210mm x 210mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "name": "Placemats",
+      "price": 29.99,
+      "thumbnail": "/images/placemats.jpg",
+      "type": "Placemats",
+      "size": "297mm x 420mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ]
     }
   ],
   "basket": []
