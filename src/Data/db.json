@@ -113,12 +113,12 @@
       "thumbnail": ""
     },
     {
-      "id": "cd79",
+      "id": "9300",
       "hosts": [
         "Ollie"
       ],
       "occassion": "West Brom vs Leeds United",
-      "date": "2024-08-24T12:30",
+      "date": "2024-09-07T12:30",
       "location": "West Brom",
       "invited": "30",
       "accepted": 0,
@@ -145,10 +145,16 @@
       "message": "No way you're 61!"
     },
     {
-      "id": "e019",
-      "eventID": "cd79",
+      "id": "4a21",
+      "eventID": "9",
       "sender": "Ollie",
-      "message": "Leeds are going up!\n\nMOT!MOT!MOT!"
+      "message": "Ham and pineapple please"
+    },
+    {
+      "id": "7580",
+      "eventID": "9300",
+      "sender": "Ollie",
+      "message": "MOT!"
     }
   ],
   "users": [
@@ -157,6 +163,7 @@
       "first name": "Ben",
       "last name": "P",
       "email": "cooldude@dude.com",
+      "password": "12345",
       "number": "01826447608",
       "profile picture": "",
       "events": [],
@@ -168,7 +175,20 @@
       "first name": "Ollie",
       "last name": "P",
       "email": "evencoolerdude@dude.com",
+      "password": "abcde",
       "number": "06817267324",
+      "profile picture": "",
+      "events": [],
+      "contacts": [],
+      "basket": []
+    },
+    {
+      "id": "3",
+      "first name": "Charlie",
+      "last name": "F",
+      "email": "desmond@dude.com",
+      "password": "clarets",
+      "number": "02848641638",
       "profile picture": "",
       "events": [],
       "contacts": [],
@@ -258,6 +278,14 @@
       "id": "14",
       "name": "A3 Correx",
       "price": 29.99,
+      "thumbnail": ""
+    }
+  ],
+  "basket": [
+    {
+      "id": "5929",
+      "name": "A4 Poster",
+      "price": 8.99,
       "thumbnail": ""
     }
   ]

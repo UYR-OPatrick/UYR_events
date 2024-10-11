@@ -1,8 +1,6 @@
-import { useParams } from "react-router-dom";
 import { postNewEvent, postNewMessage } from "../Utils/utils";
 
 export default function AddModal() {
-  const { id } = useParams();
 
   function addNew(e) {
     const form = new FormData(e.target);
@@ -11,10 +9,13 @@ export default function AddModal() {
     const eventLocation = form.get("event-location");
     const eventRecipients = form.get("event-recipients");
     const eventMessage = form.get("event-message");
-    postNewEvent(eventName, eventDate, eventLocation, eventRecipients).then(
-      (data) => {}
-    );
-    postNewMessage(id, eventMessage).then((data) => {});
+    postNewEvent(eventName, eventDate, eventLocation, eventRecipients)
+      .then((data) => {
+        return data;
+      })
+      .then((data) => {
+        postNewMessage(data.id, eventMessage).then((data) => {});
+      });
   }
 
   return (

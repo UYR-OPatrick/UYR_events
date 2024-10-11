@@ -12,14 +12,14 @@ import EditEvent from './Pages/EditEvent';
 import Basket from './Pages/Basket';
 import SignIn from './Pages/SignIn';
 
-export const UserContext = createContext();
+export const BasketContext = createContext();
 
 function App() {
-  const [user, setUser] = useState(undefined)
+  const [basket, setBasket] = useState([])
 
   return (
     <BrowserRouter>
-    <UserContext.Provider value={[user, setUser]}>
+    <BasketContext.Provider value={[basket, setBasket]}>
       <Header />
       <Routes>
         <Route index element={<Home />} />
@@ -32,7 +32,7 @@ function App() {
         <Route path='/signin' element={<SignIn />} />
       </Routes>
       <Footer />
-    </UserContext.Provider>
+    </BasketContext.Provider>
     </BrowserRouter>
   );
 }

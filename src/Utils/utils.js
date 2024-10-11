@@ -38,29 +38,14 @@ export async function postNewEvent(name, date, location, recipients) {
 }
 
 export async function postNewMessage(id, message) {
-
   const newMessage = {
     "eventID": id,
     "sender": "Ollie",
     "message": message
   }
 
-  console.log(newMessage)
-
   return axios.post('http://localhost:8000/messages', newMessage).then(res => {
     return res.data
-  })
-}
-
-export async function patchNewMessage(id, message) {
-  const newMessage = {
-    messages: [{
-      sender: 'Ollie',
-      message: message
-    }]
-  }
-  return axios.put(`http://localhost:8000/events/${id}`, newMessage).then(res => {
-    return res
   })
 }
 
@@ -70,15 +55,34 @@ export async function deleteEventById(id) {
   })
 }
 
-
 export async function getProducts() {
   return axios.get('http://localhost:8000/products').then(res => {
     return res.data
   })
 }
 
+
 export async function getProductById(id) {
   return axios.get(`http://localhost:8000/products?id=${id}`).then(res => {
     return res.data
+  })
+}
+
+export async function getBasket() {
+  return axios.get('http://localhost:8000/basket').then(res => {
+    return res.data
+  })
+}
+
+export async function addToBasket(product){
+  delete product.id
+  return axios.post('http://localhost:8000/basket', product).then(res => {
+    return res.data
+  })
+}
+
+export async function removeFromBasket(id) {
+  return axios.delete(`http://localhost:8000/basket/${id}`).then(res => {
+    return res
   })
 }

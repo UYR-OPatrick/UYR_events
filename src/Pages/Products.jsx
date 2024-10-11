@@ -11,15 +11,19 @@ export default function Products() {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    getProducts().then((data) => {
-      setLoading(false)
-      return setProducts(data);
-    }).catch(error => {
-      setError(error)
-    })
+    getProducts()
+      .then((data) => {
+        setLoading(false);
+        setProducts(data);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
 
-  return error? <Error error={error}/> : loading ? (
+  return error ? (
+    <Error error={error} />
+  ) : loading ? (
     <Loading />
   ) : (
     <div>

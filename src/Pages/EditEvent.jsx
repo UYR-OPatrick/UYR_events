@@ -22,22 +22,22 @@ export default function EditEvent() {
     getEventById(id)
       .then((data) => {
         setLoading(false);
-        return setEvent(data[0]);
+        setEvent(data[0]);
       })
       .catch((error) => {
         setError(error);
       });
-  }, [id, event]);
+  }, [id]);
 
   useEffect(() => {
     getMessagesByEventId(id)
       .then((data) => {
-        return setMessages(data);
+        setMessages(data);
       })
       .catch((error) => {
         setError(error);
       });
-  }, [id, messages]);
+  }, [id]);
 
   function handleDelete(id) {
     console.log("ID:", id);
@@ -52,14 +52,12 @@ export default function EditEvent() {
 
   function handleSend(e) {
     e.preventDefault();
-    console.log("ID:", id);
     const form = new FormData(e.target);
     const message = form.get("new-message");
-    console.log("Message:", message);
-    if(message !== ''){
+    if (message !== "") {
       postNewMessage(id, message).then((data) => {
-        console.log(data);
         document.getElementById("new-message").value = "";
+        setMessages([...messages, data]);
       });
     }
   }
@@ -83,7 +81,20 @@ export default function EditEvent() {
       </nav>
       <div className="container-xxl my-5">
         <div className="my-3 p-3 rounded border border-5">
-          <p className="display-5">{event.occassion}</p>
+          <p className="display-5">
+            {event.occassion}{" "}
+            <span>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  navigate("/events");
+                  handleDelete(event.id);
+                }}
+              >
+                Delete
+              </button>
+            </span>
+          </p>
           <p className="fs-5 fw-semibold">
             {event.hosts.length === 1
               ? `Host: ${event.hosts}`
@@ -106,7 +117,10 @@ export default function EditEvent() {
           </p>
           <p>
             <i className="bi bi-people"></i> Invited: {event.invited}
+            {" | "}
+            <i className="bi bi-person-check"></i> Accepted: {event.accepted}
           </p>
+          <p></p>
           <div className="mb-3">
             <label htmlFor="exampleFormControlInput1" className="form-label">
               Email Address:
@@ -134,18 +148,6 @@ export default function EditEvent() {
             ></textarea>
           </div>
           <button className="btn btn-primary mb-3">Invite</button>
-          <p>
-            <i className="bi bi-person-check"></i> Accepted: {event.accepted}{" "}
-          </p>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              navigate("/events");
-              handleDelete(event.id);
-            }}
-          >
-            Delete
-          </button>
         </div>
       </div>
       <div className="container-xxl my-3">

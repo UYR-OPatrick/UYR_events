@@ -3,24 +3,36 @@ import AddModal from "../Components/AddModal";
 import EventCard from "../Components/EventCard";
 import Error from "../Components/Error";
 import Loading from "../Components/Loading";
-import { Link } from "react-router-dom";
-import { getEvents } from "../Utils/utils";
+import { Link, useNavigate } from "react-router-dom";
+import { getEvents, getProducts } from "../Utils/utils";
 
 export default function Events() {
+  const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     getEvents()
       .then((data) => {
         setIsLoading(false);
-        return setEvents(data);
+        setEvents(data);
       })
       .catch((error) => {
         setError(error);
       });
   }, [events]);
+
+  useEffect(() => {
+    getProducts()
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  }, [products]);
 
   return error ? (
     <Error error={error} />
@@ -36,19 +48,35 @@ export default function Events() {
           <li className="breadcrumb-item active">Events</li>
         </ol>
       </nav>
-      <div className="container-xxl my-3">
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          data-bs-toggle="modal"
-          data-bs-target="#add-event-modal"
-        >
-          Add New Event
-        </button>
-        <AddModal />
-        {events.map((event) => (
-          <EventCard event={event} key={event.id} />
-        ))}
+      <div className="row">
+        <div className="col">One of three columns</div>
+        <div className="col-6">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg m-3"
+            data-bs-toggle="modal"
+            data-bs-target="#add-event-modal"
+          >
+            Add New Event
+          </button>
+          <AddModal />
+          {events.map((event) => (
+            <EventCard event={event} key={event.id} />
+          ))}
+        </div>
+        <div className="col">
+          {products.slice(0, 8).map((product) => {
+            return (
+              <div className="card m-3" key={product.id}>
+                <div className="card-body">
+                  <h5 className="card-title">{product.name}</h5>
+                  <p className="card-text">£{product.price}</p>
+                  <button className="btn btn-primary d-flex mb-3" onClick={() => navigate(`/products/${product.id}/info`)}>Info<i className="bi bi-arrow-right mx-2"></i></button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

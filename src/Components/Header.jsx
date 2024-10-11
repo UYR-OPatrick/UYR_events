@@ -1,11 +1,22 @@
+import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UYRLogo from "../Images/UYR GROUP LOGO - GOLD OUTLINE-p-800.png"
-import { useContext } from "react";
-import { UserContext } from "../App";
+import { BasketContext } from "../App";
+import UYRLogo from "../Images/UYR GROUP LOGO - GOLD OUTLINE-p-800.png";
+import { getBasket } from "../Utils/utils";
 
 export default function Header() {
   const navigate = useNavigate();
-  const user = useContext(UserContext)[0];
+  const [basket, setBasket] = useContext(BasketContext);
+
+  useEffect(() => {
+    getBasket()
+      .then((data) => {
+        setBasket(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [setBasket]);
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary p-3">
@@ -67,14 +78,23 @@ export default function Header() {
             </button>
           </form>
           <button
-            className="btn btn-outline-dark mx-1"
+            className="btn btn-outline-dark mx-1 position-relative"
             onClick={() => navigate("/basket")}
-          ><i className="bi bi-basket"></i> Basket</button>
+          >
+            <i className="bi bi-basket"></i> Basket
+            {basket.length ? (
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {basket.length}
+                <span className="visually-hidden">Basket Items</span>
+              </span>
+            ) : null}
+          </button>
           <button
             className="btn btn-outline-dark mx-1"
             onClick={() => navigate("/signin")}
           >
-            {user ? 'Signed In' : 'Sign In'}
+            {/* {user ? "Signed In" : "Sign In"} */}
+            Sign In
           </button>
         </div>
       </div>
