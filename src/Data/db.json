@@ -111,26 +111,51 @@
       "invited": 10,
       "accepted": 8,
       "thumbnail": ""
+    },
+    {
+      "id": "1185",
+      "hosts": [
+        "Ollie"
+      ],
+      "occassion": "UYR Xmas Party",
+      "date": "2024-12-14T19:00",
+      "location": "Wakefield",
+      "invited": "30",
+      "accepted": 0,
+      "thumbnail": ""
     }
   ],
   "messages": [
     {
-      "id": 1,
+      "id": "1",
       "eventID": "1",
       "sender": "Ollie",
       "message": "This party is going to be great!"
     },
     {
-      "id": 2,
+      "id": "2",
       "eventID": "1",
       "sender": "Ben",
       "message": "I know, I really can't wait!"
     },
     {
-      "id": 3,
+      "id": "3",
       "eventID": "2",
       "sender": "Ben",
       "message": "No way you're 61!"
+    },
+    {
+      "id": "5d1b",
+      "eventID": "1185",
+      "sender": "Ollie",
+      "message": "Hi Everybody,\n\nCan't wait for this Christmas party!"
+    },
+    {
+      "id": "9a87",
+      "eventID": "1185",
+      "sender": "Ollie",
+      "message": "Ey up!",
+      "date-time": "15/10/2024, 09:58:27"
     }
   ],
   "users": [
@@ -177,7 +202,7 @@
       "name": "A0 Poster",
       "price": 12.99,
       "thumbnail": "/images/1.avif",
-      "type": "Poster",
+      "type": "Posters",
       "size": "841mm x 1189mm",
       "quantities": [
         {
@@ -199,7 +224,7 @@
       "name": "A1 Poster",
       "price": 12.99,
       "thumbnail": "/images/2.jpg",
-      "type": "Poster",
+      "type": "Posters",
       "size": "594mm x 841mm",
       "quantities": [
         {
@@ -221,7 +246,7 @@
       "name": "A2 Poster",
       "price": 12.99,
       "thumbnail": "/images/3.avif",
-      "type": "Poster",
+      "type": "Posters",
       "size": "420mm x 594mm",
       "quantities": [
         {
@@ -243,7 +268,7 @@
       "name": "A3 Poster",
       "price": 12.99,
       "thumbnail": "/images/4.avif",
-      "type": "Poster",
+      "type": "Posters",
       "size": "297mm x 420mm",
       "quantities": [
         {
@@ -262,7 +287,7 @@
     },
     {
       "id": "5",
-      "name": "A4 Poster",
+      "name": "A4 Posters",
       "price": 8.99,
       "thumbnail": "/images/17.avif",
       "type": "Poster",
@@ -284,7 +309,7 @@
     },
     {
       "id": "6",
-      "name": "A5 Poster",
+      "name": "A5 Posters",
       "price": 12.99,
       "thumbnail": "/images/6.png",
       "type": "Poster",
@@ -438,11 +463,11 @@
     },
     {
       "id": "13",
-      "name": "Balloons",
-      "price": 14.99,
+      "name": "Balloons - Packs of 10",
+      "price": 4.99,
       "thumbnail": "/images/13.png",
       "type": "Balloons",
-      "size": "Pack of 5",
+      "size": "Packs of 10",
       "quantities": [
         {
           "qty": 25,
@@ -460,7 +485,7 @@
     },
     {
       "id": "14",
-      "name": "Party Bags",
+      "name": "Party Bags - 4 Bags x 8 Items",
       "price": 10.99,
       "thumbnail": "/images/14.jpg",
       "type": "Party Bags",
@@ -570,8 +595,8 @@
     },
     {
       "id": "19",
-      "name": "Cups",
-      "price": 29.99,
+      "name": "Cups - Packs of 25",
+      "price": 4.99,
       "thumbnail": "/images/cups.jpg",
       "type": "Cups",
       "size": "300ml",
@@ -635,5 +660,52 @@
       ]
     }
   ],
-  "basket": []
+  "basket": [
+    {
+      "id": "cd35",
+      "name": "A4 Posters",
+      "price": 8.99,
+      "thumbnail": "/images/17.avif",
+      "type": "Poster",
+      "size": "210mm x 297mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ],
+      "quantity": 4
+    },
+    {
+      "id": "6010",
+      "name": "A2 Correx",
+      "price": 39.99,
+      "thumbnail": "/images/9.jpg",
+      "type": "Correx",
+      "size": "420mm x 594mm",
+      "quantities": [
+        {
+          "qty": 25,
+          "price": 12.99
+        },
+        {
+          "qty": 50,
+          "price": 22.99
+        },
+        {
+          "qty": 100,
+          "price": 42.99
+        }
+      ],
+      "quantity": 1
+    }
+  ]
 }

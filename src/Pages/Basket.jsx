@@ -69,133 +69,150 @@ export default function Basket() {
   ) : isLoading ? (
     <Loading />
   ) : (
-    <div className="container-xxl my-5">
-      <div className="my-3 p-3 rounded border border-2">
-        <p className="display-6 m-0">Basket</p>
-      </div>
-      {!basket.length ? (
-        <div className="my-3 p-3 rounded border border-2 text-justify-center">
-          <p className="display-6 m-0">Empty</p>
+    <div className="row">
+      <div className="col"></div>
+
+      <div className="col col-7 container-xxl my-5">
+        <div className="my-3 p-3 rounded border border-2">
+          <p className="display-6 m-0">Basket</p>
         </div>
-      ) : (
-        <div>
-          <div className="my-3 p-3 rounded border border-2">
-            <div className="p-3 pt-1 my-0">
-              <div className="row">
-                <div className="col fw-bold">
-                  <div>Product</div>
-                </div>
-                <div className="col fw-bold text-center">
-                  <div>Price</div>
-                </div>
-                <div className="col fw-bold text-center">
-                  <div>Quantity</div>
-                </div>
-                <div className="col fw-bold text-center">
-                  <div>Total</div>
+        {!basket.length ? (
+          <div className="my-3 p-3 rounded border border-2 text-justify-center">
+            <p className="display-6 m-0">Empty</p>
+          </div>
+        ) : (
+          <div>
+            <div className="my-3 p-3 rounded border border-2">
+              <div className="p-3 pt-1 my-0">
+                <div className="row">
+                  <div className="col fw-bold">
+                    <div>Product</div>
+                  </div>
+                  <div className="col fw-bold text-center">
+                    <div>Price</div>
+                  </div>
+                  <div className="col fw-bold text-center">
+                    <div>Quantity</div>
+                  </div>
+                  <div className="col fw-bold text-center">
+                    <div>Total</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <hr className="mt-0" />
-            {basket.map((product) => {
-              return (
-                <div
-                  className="mb-3 p-3 rounded border border-2 text-justify-center"
-                  key={product.id}
-                >
-                  <div className="row">
-                    <div className="col">
-                      <p>{product.name}</p>
-                    </div>
-                    <div className="col text-center">
-                      <p>£{product.price}</p>
-                    </div>
-                    <div className="col text-center">
-                      <div
-                        className="btn-group"
-                        role="group"
-                        aria-label="Basic outlined example"
-                      >
-                        <button
-                          type="button"
-                          className="btn btn-outline-secondary"
-                          onClick={() => {
-                            handleEditQuantity(
-                              product.id,
-                              product.quantity - 1
-                            );
-                          }}
+              <hr className="mt-0" />
+              {basket.map((product) => {
+                return (
+                  <div
+                    className="mb-3 p-3 rounded border border-2 text-justify-center"
+                    key={product.id}
+                  >
+                    <div className="row">
+                      <div className="col">
+                        <p>{product.name}</p>
+                      </div>
+                      <div className="col text-center">
+                        <p>£{product.price}</p>
+                      </div>
+                      <div className="col text-center">
+                        <div
+                          className="btn-group"
+                          role="group"
+                          aria-label="Basic outlined example"
                         >
-                          <i className="bi bi-dash"></i>
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-outline-secondary"
-                        >
-                          {product.quantity}
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-outline-secondary"
-                          onClick={() => {
-                            handleEditQuantity(
-                              product.id,
-                              product.quantity + 1
-                            );
-                          }}
-                        >
-                          <i className="bi bi-plus"></i>
-                        </button>
+                          <button
+                            type="button"
+                            className="btn btn-outline-secondary"
+                            onClick={() => {
+                              handleEditQuantity(
+                                product.id,
+                                product.quantity - 1
+                              );
+                            }}
+                          >
+                            <i className="bi bi-dash"></i>
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-outline-secondary"
+                          >
+                            {product.quantity}
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-outline-secondary"
+                            onClick={() => {
+                              handleEditQuantity(
+                                product.id,
+                                product.quantity + 1
+                              );
+                            }}
+                          >
+                            <i className="bi bi-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div className="col text-center">
+                        <p>£{(product.price * product.quantity).toFixed(2)}</p>
                       </div>
                     </div>
-                    <div className="col text-center">
-                      <p>£{(product.price * product.quantity).toFixed(2)}</p>
+                    <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        onClick={(e) => {
+                          handleRemove(product.id);
+                        }}
+                      ></button>
                     </div>
                   </div>
-                  <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button
-                      type="button"
-                      className="btn-close"
-                      onClick={(e) => {
-                        handleRemove(product.id);
-                      }}
-                    ></button>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+            {subtotal() < 50 ? (
+              <div className="alert alert-danger" role="alert">
+                {`Spend £${(50 - subtotal()).toFixed(
+                  2
+                )} to qualify for free delivery`}
+              </div>
+            ) : (
+              <div className="alert alert-success" role="alert">
+                You have qualified for free delivery
+              </div>
+            )}
+            <ul className="list-group">
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Subtotal
+                <span>£{subtotal().toFixed(2)}</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                VAT 20%
+                <span>£{vat().toFixed(2)}</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Delivery
+                <span>£{delivery().toFixed(2)}</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                Total
+                <span>£{(subtotal() + vat() + delivery()).toFixed(2)}</span>
+              </li>
+            </ul>
           </div>
-          {subtotal() < 50 ? (
-            <div className="alert alert-danger" role="alert">
-              {`Spend £${(50 - subtotal()).toFixed(
-                2
-              )} to qualify for free delivery`}
-            </div>
-          ) : (
-            <div className="alert alert-success" role="alert">
-              You have qualified for free delivery
-            </div>
-          )}
-          <ul className="list-group">
-            <li className="list-group-item d-flex justify-content-between align-items-center">
-              Subtotal
-              <span>£{subtotal().toFixed(2)}</span>
-            </li>
-            <li className="list-group-item d-flex justify-content-between align-items-center">
-              VAT 20%
-              <span>£{vat().toFixed(2)}</span>
-            </li>
-            <li className="list-group-item d-flex justify-content-between align-items-center">
-              Delivery
-              <span>£{delivery().toFixed(2)}</span>
-            </li>
-            <li className="list-group-item d-flex justify-content-between align-items-center">
-              Total
-              <span>£{(subtotal() + vat() + delivery()).toFixed(2)}</span>
-            </li>
-          </ul>
+        )}
+      </div>
+      <div className="col my-5 me-4">
+        <div className="my-3 p-3 rounded border border-2">
+          <p className="display-6 m-0">Delivery</p>
+          <p className="pt-3">Name</p>
+          <p>Street</p>
+          <p>Town</p>
+          <p>City</p>
+          <p>Postcode</p>
+          <button className="btn btn-primary w-100">Change Address</button>
+          <hr />
+          <button className="btn btn-primary w-100">Checkout</button>
         </div>
-      )}
+      </div>
     </div>
   );
 }

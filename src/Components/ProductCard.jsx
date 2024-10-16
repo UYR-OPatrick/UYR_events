@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
     <div className="col">
       <div className="card h-100">
         <Link to={`/products/${product.id}/info`}>
-          <img src={product.thumbnail} className="card-img-top" alt={product.name} />
+          <img src={product.thumbnail} className="card-img-top" alt={product.name} height={400}/>
         </Link>
         <div className="card-body">
           <div className="row">

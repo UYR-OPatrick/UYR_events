@@ -9,6 +9,7 @@ export default function Products() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState(null);
+
   const types = [
     "Balloons",
     "Bunting",
@@ -35,7 +36,10 @@ export default function Products() {
   }, []);
 
   function filterByType(type){
-    console.log('Type Selected:', type)
+    console.log('Type Selected:', type.toLowerCase())
+    console.log(products.filter((product)=>{return type.toLowerCase() === product.type.toLowerCase()}))
+    const filtered = (products.filter((product)=>{return type.toLowerCase() === product.type.toLowerCase()}))
+    setProducts(filtered)
   }
 
   return error ? (
@@ -43,7 +47,7 @@ export default function Products() {
   ) : loading ? (
     <Loading />
   ) : (
-    <div>
+    <div className="pb-5">
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb p-4">
           <li className="breadcrumb-item">
@@ -81,7 +85,7 @@ export default function Products() {
           </div>
         </div>
         <div className="col">
-          <div className="row row-cols-1 row-cols-md-6 g-4 py-0">
+          <div className="row row-cols-1 row-cols-md-6 g-4 py-0 me-4">
             {products.map((product) => (
               <ProductCard product={product} key={product.id} />
             ))}

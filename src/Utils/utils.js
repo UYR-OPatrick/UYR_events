@@ -38,10 +38,12 @@ export async function postNewEvent(name, date, location, recipients) {
 }
 
 export async function postNewMessage(id, message) {
+
   const newMessage = {
     "eventID": id,
     "sender": "Ollie",
-    "message": message
+    "message": message,
+    "date-time": new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' }) 
   }
 
   return axios.post('http://localhost:8000/messages', newMessage).then(res => {

@@ -31,7 +31,7 @@ function App() {
         <Route path='/basket' element={<Basket />} />
         <Route path='/signin' element={<SignIn />} />
       </Routes>
-      <Footer />
+      <Footer/>
     </BasketContext.Provider>
     </BrowserRouter>
   );

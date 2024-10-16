@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { getProductById, addToBasket } from "../Utils/utils";
 import Error from "../Components/Error";
 import Loading from "../Components/Loading";
-import defaultImage from "../Images/default-product-image.png";
+import defaultImage from "../Images/default-product-image-5.png";
 import { useContext } from "react";
 import { BasketContext } from "../App";
 
