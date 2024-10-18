@@ -9,6 +9,7 @@ export default function Basket() {
   const [basket, setBasket] = useContext(BasketContext);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [address, setAddress] = useState(null)
 
   useEffect(() => {
     getBasket()
@@ -62,6 +63,18 @@ export default function Basket() {
         });
       });
     }
+  }
+
+  function changeAddress(e) {
+    e.preventDefault()
+    const form = new FormData(e.target);
+    const name = form.get("name");
+    const street = form.get("street");
+    const town = form.get("town");
+    const city = form.get("city");
+    const postcode = form.get("postcode");
+    console.log([name, street, town, city, postcode])
+    setAddress([name, street, town, city, postcode])
   }
 
   return error ? (
@@ -203,12 +216,98 @@ export default function Basket() {
       <div className="col my-5 me-4">
         <div className="my-3 p-3 rounded border border-2">
           <p className="display-6 m-0">Delivery</p>
-          <p className="pt-3">Name</p>
-          <p>Street</p>
-          <p>Town</p>
-          <p>City</p>
-          <p>Postcode</p>
-          <button className="btn btn-primary w-100">Change Address</button>
+          <p className="pt-3">{address ? address[0] : 'Name'}</p>
+          <p>{address ? address[1] : 'Street'}</p>
+          <p>{address ? address[2] : 'Town'}</p>
+          <p>{address ? address[3] : 'City'}</p>
+          <p>{address ? address[4] : 'Postocde'}</p>
+          <button
+            className="btn btn-primary w-100"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#change-address-modal"
+          >
+            Change Address
+          </button>
+          <div
+            className="modal fade"
+            id="change-address-modal"
+            tabIndex={-1}
+            aria-labelledby="modal-title"
+            aria-hidden="true"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+          >
+            <div className="modal-dialog modal-dialog-centered modal-lg">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="modal-title">
+                    Change Address
+                  </h5>
+                  <button
+                    className="btn-close"
+                    type="button"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <form id="add-event" onSubmit={(e) => changeAddress(e)}>
+                    <div className="mb-3">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="name"
+                        name="name"
+                        placeholder="Name"
+                      />
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="street"
+                        name="street"
+                        placeholder="Street"
+                      />
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="town"
+                        name="town"
+                        placeholder="Town"
+                      />
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="city"
+                        name="city"
+                        placeholder="City"
+                      />
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="postcode"
+                        name="postcode"
+                        placeholder="Postcode"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div className="modal-footer justify-content-xxl-end">
+                  <button className="btn btn-primary" data-bs-dismiss="modal">
+                    Cancel
+                  </button>
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                    form="add-event"
+                  >
+                    Confirm
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <hr />
           <button className="btn btn-primary w-100">Checkout</button>
         </div>
